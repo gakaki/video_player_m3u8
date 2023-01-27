@@ -5,37 +5,36 @@ import Card from '../components/Card.astro';
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<!-- <h1>Welcome to <span class="text-gradient">Astro</span></h1> -->
 
-		<!-- <div>
-		
-			<br><br>
 
-			<video id="video" class="video-js vjs-default-skin" preload="auto" crossorigin="true" controls width="120" height="120" controls>
-				<source src='https://v.esn8.com:2009/20230125/jxICZYK1/index.m3u8' type='application/x-mpegURL'>
-			</video>
+		<div>
+			<div class="flex space-x-2 py-2">
+				<input type="button" id="btn" value="播放 满jiang hong" class="border px-2 py-2">
+				<input type="button" id="btn2" value="播放 小破球2" class="border px-2 py-2">
+			</div>
 
-			<input type="text" id="url" style="width:100%" value="https://v.esn8.com:2009/20230125/jxICZYK1/index.m3u8"> 
-			<input type="button" id="btn" value="play">
-
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-			<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/alt/video-js-cdn.css" rel="stylesheet">
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/video.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/3.0.2/videojs-contrib-hls.js"></script> 
-
-			<script is:inline>
-			$(function() {
-				console.log("ready")
-				$("#btn").on("click", function(e) {
-					console.log("ready",e)
-					$("#video").html("<source src='"+ $("#url").val() +"' type='application/x-mpegURL'>");
-					var ply = videojs("video");
-					ply.play();
-				});
-			});
+			<input type="hidden" id="url_manjianghong" style="width:100%" value="https://v.esn8.com:2009/20230125/jxICZYK1/index.m3u8"> 
+			<input type="hidden" id="url_xiaopoqiu" style="width:100%" value="https://v.esn8.com:2009/20230123/9r0HRhyt/index.m3u8"> 
 			
+			<video id="video" class="video-js vjs-default-skin" preload="auto" crossorigin="true" controls width="640" height="268" controls>
+			</video>
+			<script is:inline>
+				$(document).ready(function() {
+					function play_url( url ){
+						$("#video").html("<source src='"+ url +"' type='application/x-mpegURL'>");
+						const ply = videojs("video");
+						ply.play();
+					}
+					$("#btn").on("click", function() {
+						play_url($("#url_manjianghong").val())
+					});
+					$("#btn2").on("click", function() {
+						play_url($("#url_xiaopoqiu").val())
+					});
+				}); 
 			</script>
-		</div> -->
+		</div>
 		
 
 		<!-- <div>
@@ -72,7 +71,7 @@ import Card from '../components/Card.astro';
 			</script>
 		</div> -->
 
-		<div>
+		<!-- <div>
 			<div class="artplayer-app"></div>
 			<script>
 				import Artplayer from 'artplayer';
@@ -107,12 +106,12 @@ import Card from '../components/Card.astro';
 			</script>
 		</div>
 
+ -->
 
-
-		<p class="instructions">
+		<!-- <p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
+		</p> -->
 		<!-- <ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
